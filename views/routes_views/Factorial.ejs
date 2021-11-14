@@ -1,0 +1,39 @@
+<%- include('../_partials/_header'); -%>
+    <div class="col-md-8">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3>Factorial</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">#</span>
+                        <input type="number" class="form-control" placeholder="N Number" name="nNumber1" id="Number1" aria-describedby="basic-addon1" required>
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">=</span>
+                        <input type="text" class="form-control" placeholder="Result " id = 'result'  aria-describedby="basic-addon1" disabled>
+                    </div>
+                    <br />
+                    <input type="button" class="btn btn-default navbar-btn" value="Submit" onclick="fetchFactorial()"/>
+                    <script>
+                        function fetchFactorial(){
+                            var nNumber = document.getElementById('Number1');
+                            var data = {Nnumber1:nNumber.value}
+                            data = new URLSearchParams(Object.entries(data)).toString()
+                            fetch('calculos/CalcFactorial',{
+                                method: 'POST',
+                                headers:{
+                                    'Content-Type': 'application/x-www-form-urlencoded'
+                                },
+                                body: data
+                            }).then(res => res.json()).then(data => document.getElementById('result').value = data['result']).catch(err => console.log(err));
+                        }
+                    </script> 
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include ('../_partials/_footer'); -%>
