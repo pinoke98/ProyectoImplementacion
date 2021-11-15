@@ -14,10 +14,10 @@
                     <br />
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">=</span>
-                        <input type="text" class="form-control" placeholder="Result " id = 'result'  aria-describedby="basic-addon1" disabled width="auto" height="auto">
+                        <input type="text" class="form-control" placeholder="Result " id = 'result' name="Result" aria-describedby="basic-addon1" disabled width="auto" height="auto">
                     </div>
                     <br />
-                    <input type="button" class="btn btn-default navbar-btn" value="Submit" onclick="fetchFibonacci()"/>
+                    <input type="button" class="btn btn-default navbar-btn" id = "button" value="Submit" onclick="fetchFibonacci()"/>
                     <script>
                         function fetchFibonacci(){
                             var nNumber = document.getElementById('Number2');
